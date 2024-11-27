@@ -1,0 +1,325 @@
+/* 전체 레이아웃 */
+.container {
+    height: 100vh;
+    display: flex;
+    background-color: #f9fafc;
+    font-family: "Roboto", Arial, sans-serif;
+    color: #4a403a;
+}
+
+#friendsListH {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar 스타일 */
+footer {
+    width: 80px;
+    background-color: #2c3e50;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* 위치 고정 */
+    top: 0; /* 화면의 위쪽 */
+    height: 100%; /* 화면 높이 전체를 차지 */
+}
+
+footer > a > img {
+    width: 40px;
+    padding: 8px;
+    margin: 12px 0;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+footer > a > img:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+/* 메인 컨텐츠 스타일 */
+main {
+    flex: 1;
+    display: flex;
+    margin-left: 100px;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9f9f9, #faf7f7, #f1cac1); /* 그라데이션 추가 */
+}
+
+/* 검색 창 스타일 */
+.search_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #BCB8B1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .friend_search_txt {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #c58e2e;
+    cursor: text;
+    transition: border-color 0.3s ease;
+  }
+  
+  .friend_search_txt:focus {
+    border-color: #463F3A;
+  }
+  
+  .search_button {
+    width: 50px;
+    height: 50px;
+    background-color: #8A817C;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+.search_button img {
+    width: 60%;
+    height: 60%;
+}
+
+.search_button:hover {
+    background-color: #463F3A;
+}
+
+/* 친구 목록 스타일 */
+.friend_list {
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;  /* 컨테이너 최대 너비 설정 */
+    margin: 0 auto;    /* 중앙 정렬 */
+}
+
+.friend_list ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3열 그리드 */
+    gap: 20px;  /* 아이템 간 간격 */
+    padding: 0;
+    list-style: none;
+}
+
+.friend_list li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 80px;  /* 카드 최소 높이 설정 */
+}
+
+.friend_list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 프로필 이미지 */
+.profile-icon {
+    width: 50px;      /* 프로필 아이콘 크기 조절 */
+    height: 50px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 친구 이름 */
+.friend-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1; /* 이름이 남은 공간을 차지 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+#notExistH {
+    text-align: center;
+    padding: 20px;
+    height: 50px;
+}
+
+#notExistH img {
+    width: 150px;  /* 이미지 크기 조절 */
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .friend_list ul {
+        grid-template-columns: repeat(2, 1fr);  /* 화면이 작을 때는 2열로 변경 */
+    }
+}
+
+@media (max-width: 480px) {
+    .friend_list ul {
+        grid-template-columns: 1fr;  /* 모바일에서는 1열로 변경 */
+    }
+}
+
+.modal_overlay {
+    display: flex; /* 플렉스 박스 설정 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+}
+
+.modal_content {
+    z-index: 1001;
+    display: flex;
+    flex-direction: column; /* 위에서 아래로 정렬 */
+    justify-content: flex-start; /* 모든 내용이 위쪽에 정렬 */
+    align-items: center; /* 가운데 정렬 */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+    height: 80vh; /* 모달 높이를 고정 */
+    overflow: hidden;
+}
+
+.close_button {
+    background-color: #f05454;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.close_button:hover {
+    color: #ff6b6b;
+}
+
+.friend_result {
+    display: flex;
+    flex-direction: column; /* 요소를 세로로 정렬 */
+    justify-content: flex-start; /* 수직 위쪽 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    overflow-y: auto; /* 세로 스크롤 가능 */
+    width: 100%;
+    max-height: calc(90vh - 100px); /* 전체 화면의 90% 크기, 여백 제외 */
+    padding: 16px;
+    box-sizing: border-box;
+    margin-right: 20px; /* 커스텀 스크롤바 공간을 확보 */
+}
+
+.add_friend_button {
+    background-color: #34495e; /* 어두운 톤의 블루-그레이 */
+    color: #ecf0f1; /* 밝은 텍스트 */
+    border: 1px solid #2c3e50; /* 테두리 색상 */
+    border-radius: 8px; /* 더 부드러운 둥근 모서리 */
+    padding: 12px 24px; /* 여백 증가로 버튼 크기 확대 */
+    font-size: 16px; /* 텍스트 크기 */
+    font-weight: 600; /* 폰트 두께 추가 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* 호버 및 클릭 애니메이션 */
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 버튼에 약간의 그림자 */
+}
+
+.add_friend_button:hover {
+    background-color: #2c3e50; /* 조금 더 어두운 톤으로 변화 */
+    color: #ffffff; /* 텍스트를 더 강조 */
+    transform: scale(1.05); /* 살짝 확대되는 애니메이션 */
+}
+
+.add_friend_button:active {
+    transform: scale(0.98); /* 클릭 시 약간 축소 */
+    background-color: #1a252f; /* 더 어두운 상태 */
+}
+
+/* 스크롤바 스타일 */
+.scrollbar {
+    width: 100%;
+    height: 100%; /* 스크롤 영역의 전체 높이 */
+    overflow-y: auto; /* 세로 스크롤 */
+    box-sizing: content-box;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #bbb;
+}
+
+.profile {
+    display: flex; /* Flexbox 활성화 */
+    flex-direction: row; /* 가로로 나열 */
+    align-items: center; /* 세로 축에서 항목 정렬 */
+    justify-content: space-around; /* 항목 사이 여백 균일 분배 */
+    gap: 80px; /* 항목 간격 */
+}
+
+ul {
+    list-style-type: none; /* 점 제거 */
+    padding: 0; /* 기본 들여쓰기 제거 */
+    margin: 0; /* 기본 여백 제거 */
+}
+
+.newFriend-container h2 {
+    grid-column: 1 / -1; /* 첫 번째 열을 전체 차지하도록 설정 */
+    display: flex;
+    justify-content: flex-start; /* 세로로 정렬될 수 있도록 */
+    align-items: flex-start; /* 세로로 정렬 */
+    margin-bottom: 16px; /* h2와 친구 목록 간격 */
+}
+
+.newFriend-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 3열 반응형 */
+    gap: 16px; /* 카드 간격 */
+    padding: 16px;
+    list-style: none;
+}
+
+@media (max-width: 600px) {
+    .newFriend-container {
+        grid-template-columns: 1fr; /* 작은 화면에서는 한 열 */
+    }
+}

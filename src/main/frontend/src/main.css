@@ -1,0 +1,108 @@
+/* 전체 레이아웃 */
+.container {
+    height: 100vh;
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+/* Sidebar 스타일 */
+footer {
+    width: 200px;
+    background-color: #2c3e50;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    order: 1;
+    position: fixed; /* 위치 고정 */
+    top: 0; /* 화면의 위쪽 */
+    height: 100%; /* 화면 높이 전체를 차지 */
+}
+
+footer > a > img {
+    width: 40px;
+    padding: 8px;
+    margin: 12px 0;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+footer > a > img:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+/* 메인 컨텐츠 스타일 */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    order: 2;
+}
+
+.main-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    order: 2;
+    background: linear-gradient(135deg, #f9f9f9, #faf7f7, #f1cac1); /* 그라데이션 추가 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 살짝의 그림자 효과 */
+}
+
+/* 메인 타이틀 애니메이션 */
+.main-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s; /* 타이틀이 0.5초 뒤에 나타나게 설정 */
+}
+
+/* 메인 설명 텍스트 애니메이션 */
+.main-description {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1s; /* 설명이 타이틀 이후 1초 뒤에 나타나게 설정 */
+}
+
+/* 그라데이션 버튼 스타일 */
+.gradient-button {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1.5s; /* 설명이 타이틀 이후 1.5초 뒤에 나타나게 설정 */
+}
+
+.gradient-button:hover {
+    background: linear-gradient(90deg, #ff6f61, #fe8b73);
+}
+
+/* FadeIn 애니메이션 정의 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* 살짝 아래에서 위로 올라오는 효과 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
