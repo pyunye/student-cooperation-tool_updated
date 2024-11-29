@@ -25,10 +25,12 @@ const FriendsList = () => {
   }, []);
 
   return (
+    <div>
+      <h2 id="friendsListH">친구 목록</h2>
       <div className="friend_list">
         <div id="newFriendDiv" className="newFriend-container"></div>
         <div id="barDiv"></div>
-        <h2 id="friendsListH">친구 목록</h2>
+        
         {friends.num > 0 ? (
           <ul>
             {friends.members.map(friend => (
@@ -47,6 +49,7 @@ const FriendsList = () => {
             아직 등록된 친구가 없습니다. 친구들을 찾아 볼까요?
         </h1>}
       </div>
+    </div>
   );
 };
 
