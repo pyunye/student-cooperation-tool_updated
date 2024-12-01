@@ -8,8 +8,7 @@
 
 #friendsListH {
     font-size: 25px;
-    font-weight: 700;
-    margin: 0;
+    margin: 20px ;
     padding: 0;
 }
 
@@ -106,15 +105,17 @@ main {
     padding: 20px;
     width: 100%;
     max-width: 900px;  /* 컨테이너 최대 너비 설정 */
-    margin: 0 auto;    /* 중앙 정렬 */
+    margin-left: 400px;
 }
 
 .friend_list ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);  /* 3열 그리드 */
-    gap: 20px;  /* 아이템 간 간격 */
+    gap: 15px;  /* 아이템 간 간격 */
     padding: 0;
     list-style: none;
+    width: 920px;
+    margin-left: 15px;
 }
 
 .friend_list li {
@@ -132,10 +133,41 @@ main {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.newFriend-container ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin: 16px auto; /* 가운데 정렬 */
+  }
+
+  .h1{
+    margin: 16px auto; /* 가운데 정렬 */
+}
+
+.newFriend-container h2 {
+    grid-column: 1 / -1; /* 첫 번째 열을 전체 차지하도록 설정 */
+    display: flex;
+    justify-content: flex-start; /* 세로로 정렬될 수 있도록 */
+    align-items: flex-start; /* 세로로 정렬 */
+    margin-bottom: 16px; /* h2와 친구 목록 간격 */
+    text-align: center; /* 가운데 정렬 */
+}
+
 .newFriend-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr)); /* 3열 반응형 */
+    gap: 16px; /* 카드 간격 */
+    padding: 16px;
+    list-style: none;
     width : 100vh;
 }
 
+.divider-bar {
+    width: 950px;
+}
 /* 프로필 이미지 */
 .profile-icon {
     width: 50px;      /* 프로필 아이콘 크기 조절 */
@@ -305,40 +337,7 @@ ul {
     margin: 0; /* 기본 여백 제거 */
 }
 
-.newFriend-container ul {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
-    gap: 16px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin: 16px auto; /* 가운데 정렬 */
-  }
 
-  .h1{
-    margin: 16px auto; /* 가운데 정렬 */
-}
-
-.newFriend-container h2 {
-    grid-column: 1 / -1; /* 첫 번째 열을 전체 차지하도록 설정 */
-    display: flex;
-    justify-content: flex-start; /* 세로로 정렬될 수 있도록 */
-    align-items: flex-start; /* 세로로 정렬 */
-    margin-bottom: 16px; /* h2와 친구 목록 간격 */
-    text-align: center; /* 가운데 정렬 */
-}
-
-.newFriend-container{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr)); /* 3열 반응형 */
-    gap: 16px; /* 카드 간격 */
-    padding: 16px;
-    list-style: none;
-}
-
-.divider-bar {
-    width: 1000px;
-}
 
 @media (max-width: 600px) {
     .newFriend-container {
